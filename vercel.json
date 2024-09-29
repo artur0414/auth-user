@@ -8,7 +8,7 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
+      "src": "/(.*)",
       "dest": "server-with-mysql.js", 
       "headers": [
         { "key": "Access-Control-Allow-Credentials", "value": "true" },
