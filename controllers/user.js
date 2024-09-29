@@ -39,10 +39,12 @@ export class UserController {
       return res
         .cookie("access_token", token, {
           httpOnly: true, // Importante para prevenir accesos desde JavaScript del lado del cliente
-          secure: process.env.NODE_ENV === "production" || false, // Solo si estás en producción
+          secure: process.env.NODE_ENV === "production", // Solo si estás en producción
           sameSite: "none", // Cambia según tus necesidades
           maxAge: 1000 * 60 * 60,
         })
+        .header("Access-Control-Allow-Origin", "http://localhost:3000")
+        .header("Access-Control-Allow-Credentials", "true")
         .json({ createUser, token });
     } catch (error) {
       return res.status(500).json({ error: error.message });
@@ -96,10 +98,12 @@ export class UserController {
       return res
         .cookie("access_token", token, {
           httpOnly: true, // Importante para prevenir accesos desde JavaScript del lado del cliente
-          secure: process.env.NODE_ENV === "production" || false, // Solo si estás en producción
+          secure: process.env.NODE_ENV === "production", // Solo si estás en producción
           sameSite: "none", // Cambia según tus necesidades
           maxAge: 1000 * 60 * 60,
         })
+        .header("Access-Control-Allow-Origin", "http://localhost:3000")
+        .header("Access-Control-Allow-Credentials", "true")
         .json({ user, token });
     } catch (error) {
       return res.status(500).send("Internal server error");
