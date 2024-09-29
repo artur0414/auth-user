@@ -40,7 +40,7 @@ export class UserController {
         .cookie("access_token", token, {
           httpOnly: true, // Importante para prevenir accesos desde JavaScript del lado del cliente
           secure: process.env.NODE_ENV === "production" || false, // Solo si estás en producción
-          sameSite: "Lax", // Cambia según tus necesidades
+          sameSite: "none", // Cambia según tus necesidades
           maxAge: 1000 * 60 * 60,
         })
         .json({ createUser, token });
@@ -97,7 +97,7 @@ export class UserController {
         .cookie("access_token", token, {
           httpOnly: true, // Importante para prevenir accesos desde JavaScript del lado del cliente
           secure: process.env.NODE_ENV === "production" || false, // Solo si estás en producción
-          sameSite: "Lax", // Cambia según tus necesidades
+          sameSite: "none", // Cambia según tus necesidades
           maxAge: 1000 * 60 * 60,
         })
         .json({ user, token });
