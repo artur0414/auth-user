@@ -1,5 +1,16 @@
 import cors from "cors";
 
-export const corsMiddleware = cors({
-  origin: "*", // Solo para desarrollo
-});
+const ACCEPTED_ORIGINS = ["http://localhost:3000"];
+
+export const corsMiddleware = ({ acceptedOrigins = ACCEPTED_ORIGINS } = {}) => {
+  return cors({
+    origin: (origin, callback) => {
+      if (acceptedOrigins.includes(origin) || !origin) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Nor allowed by cors"));
+    },
+    credentials: true,
+  });
+};
