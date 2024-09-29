@@ -1,0 +1,12 @@
+# Ignorar la carpeta de dependencias de Node.js
+node_modules/
+
+# Ignorar archivos de entorno
+.env
+
+# Ignorar logs
+logs
+*.log
+
+app.http
+.vscode
