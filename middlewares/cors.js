@@ -1,6 +1,6 @@
 import cors from "cors";
 
-const ACCEPTED_ORIGINS = ["http://localhost:3000"];
+const ACCEPTED_ORIGINS = ["https://frontend-5tebu6gz5-arturo-acostas-projects.vercel.app"];
 
 export const corsMiddleware = ({ acceptedOrigins = ACCEPTED_ORIGINS } = {}) => {
   return cors({
